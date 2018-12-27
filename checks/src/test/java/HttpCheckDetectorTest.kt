@@ -7,7 +7,7 @@ import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
 @Suppress("UnstableApiUsage")
-class HttpCheckDetectorJavaTest : LintDetectorTest() {
+class HttpCheckDetectorTest : LintDetectorTest() {
     companion object {
         private const val SOURCE_PATH = "src/com/iiinaiii/lintchecks/"
     }
@@ -130,7 +130,7 @@ src/com/iiinaiii/lintchecks/Foo.kt:22: Error: Don't write http:// code direct!!!
 
     @Test
     @Throws(Exception::class)
-    fun testFooNoWarningClassDetect() {
+    fun testDetectNoWarning() {
         val noWarningCode = """
                 /**
                  * java class for test
