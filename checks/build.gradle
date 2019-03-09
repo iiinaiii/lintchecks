@@ -1,27 +1,13 @@
 apply plugin: 'kotlin'
-apply plugin: 'kotlin-kapt'
-
-configurations {
-    lintChecks
-}
 
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compileOnly "com.android.tools.lint:lint-api:$lint_version"
-    compileOnly "com.android.tools.lint:lint-checks:$lint_version"
-
+    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
     testCompile "junit:junit:4.12"
-    testCompile "com.android.tools.lint:lint:$lint_version"
-    testCompile "com.android.tools.lint:lint-tests:$lint_version"
-    testCompile "com.android.tools:testutils:$lint_version"
-
-    lintChecks "com.github.serchinastico.lin:detectors:$lin_version"
-    implementation "com.github.serchinastico.lin:dsl:$lin_version"
-    implementation "com.github.serchinastico.lin:annotations:$lin_version"
-    kapt "com.github.serchinastico.lin:processor:$lin_version"
-    testCompile "com.github.serchinastico.lin:test:$lin_version"
-
-    lintChecks files(jar)
+    testCompile "com.android.tools.lint:lint:$lintVersion"
+    testCompile "com.android.tools.lint:lint-tests:$lintVersion"
+    testCompile "com.android.tools:testutils:$lintVersion"
 }
 
 sourceCompatibility = "1.8"
