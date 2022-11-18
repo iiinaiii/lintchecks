@@ -1,13 +1,16 @@
+repositories {
+    mavenCentral()
+}
 apply plugin: 'kotlin'
 
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
-    testCompile "junit:junit:4.12"
-    testCompile "com.android.tools.lint:lint:$lintVersion"
-    testCompile "com.android.tools.lint:lint-tests:$lintVersion"
-    testCompile "com.android.tools:testutils:$lintVersion"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "com.android.tools.lint:lint:$lintVersion"
+    testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+    testImplementation "com.android.tools:testutils:$lintVersion"
 }
 
 sourceCompatibility = "1.8"

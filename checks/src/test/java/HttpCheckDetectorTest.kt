@@ -6,7 +6,6 @@ import com.android.tools.lint.detector.api.Issue
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
-@Suppress("UnstableApiUsage")
 class HttpCheckDetectorTest : LintDetectorTest() {
     companion object {
         private const val SOURCE_PATH = "src/com/iiinaiii/lintchecks/"
@@ -61,7 +60,7 @@ class HttpCheckDetectorTest : LintDetectorTest() {
                 }
 
             """
-        val javaResult = lintProject(LintDetectorTest.java(SOURCE_PATH + "Foo.java", javaCode))
+        val javaResult = lintProject(java(SOURCE_PATH + "Foo.java", javaCode))
 
         assertThat(javaResult).isEqualTo(
             """
@@ -157,7 +156,7 @@ src/com/iiinaiii/lintchecks/Foo.kt:22: Error: Don't write http:// code direct!!!
                 }
 
             """
-        val result = lintProject(LintDetectorTest.java(SOURCE_PATH + "Foo.java", noWarningCode))
+        val result = lintProject(java(SOURCE_PATH + "Foo.java", noWarningCode))
         assertThat(result).isEqualTo("No warnings.")
     }
 }
